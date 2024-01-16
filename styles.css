@@ -3,3 +3,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-image: url('https://cdn.pixabay.com/photo/2023/12/29/12/12/ai-generated-8476091_1280.jpg');
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: auto;
+    animation: pulse 60s infinite;
+}
+@keyframes pulse {
+    0% {
+        background-image: url('https://cdn.pixabay.com/photo/2023/12/29/12/12/ai-generated-8476091_1280.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    25%{
+        background-image: url('https://cdn.pixabay.com/photo/2017/04/13/13/45/owl-2227574_1280.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    50% {
+        background-image: url('https://cdn.pixabay.com/photo/2020/11/13/16/51/white-walker-5739181_1280.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    75%{
+        background-image: url('https://cdn.pixabay.com/photo/2021/08/27/12/18/forest-6578551_1280.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    100% {
+        background-image: url('https://cdn.pixabay.com/photo/2023/12/29/12/12/ai-generated-8476091_1280.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+  }
