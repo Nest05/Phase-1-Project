@@ -83,24 +83,34 @@ select {
 p{
     color: #F2D2BD;
     font-size: larger;
+    font-weight: 900;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Macondo', cursive;
 }
 h1{
+    background: linear-gradient(to right, rgb(60, 65, 81, 0.3) 50%, rgb(242, 210, 189, 0.3) 50%);
     color: #F2D2BD;
     font-family: 'Cinzel', serif;
     text-align: center;
+    font-size: 5vw;
 }
 h2{
-    color: #F2D2BD;
+    color: rgb(242, 210, 189, 0.8);
     padding-bottom: 2vh;
+    font-weight: 900;
     font-family: 'Cinzel', serif;
 }
 #quotes{
     position: fixed;
-      top: 12%;
-      left: 50%;
-      transform: translate(-50%, -10%);
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #F2D2BD
-      font-family: Arial, sans-serif;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    margin-top: 10vh;
+    height: 30vh;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #F2D2BD;
+    font-family: 'Cinzel', serif;
+    overflow: auto;
+      
 }
