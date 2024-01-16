@@ -15,31 +15,49 @@ random.textContent = 'Random Quote';
 const authorQuote = document.createElement('button');
 authorQuote.textContent = 'Author Quotes';
 const quotes = document.getElementById('quotes');
+const selector = document.querySelector('select');
 
-random.addEventListener('click', (e) => {
-   e.stopPropagation();
-   fetch('https://api.gameofthronesquotes.xyz/v1/random/5')
-   .then(res => res.json())
-   .then(quotes => {
-    console.log(quotes);
+// random.addEventListener('click', (e) => {
+//    e.stopPropagation();
+//    fetch('https://api.gameofthronesquotes.xyz/v1/random/5')
+//    .then(res => res.json())
+//    .then(quotes => {
+//     console.log(quotes);
 
-    quotes.forEach(quote => {
+//     quotes.forEach(quote => {
     
-    console.log(quote.sentence);
-    console.log(quote.character.name);
-    console.log(quote.character.house.name);
-})
-})
-.catch(error => console.log(error))
-})
-quotes.appendChild(random);  
+//     console.log(quote.sentence);
+//     console.log(quote.character.name);
+//     console.log(quote.character.house.name);
+// })
+// })
+// .catch(error => console.log(error))
+// })
+// quotes.appendChild(random);  
 
-authorQuote.addEventListener('click', (e) => {
-    e.stopPropagation();
-    fetch('https://api.gameofthronesquotes.xyz/v1/author/tyrion/100')
-    .then(res => res.json())
-    .then(tyrions => console.log(tyrions))
-})
-quotes.appendChild(authorQuote);
-})
+// authorQuote.addEventListener('click', (e) => {
+//     e.stopPropagation();
+//     fetch('https://api.gameofthronesquotes.xyz/v1/author/tyrion/100')
+//     .then(res => res.json())
+//     .then(tyrions => console.log(tyrions))
+// })
+// quotes.appendChild(authorQuote);
+// })
 
+fetch('https://api.gameofthronesquotes.xyz/v1/characters')
+.then(res => res.json())
+.then(characters => {
+    console.log(characters)
+
+    characters.forEach(character => {
+        console.log(character.name);
+        const characterName = document.createElement('option');
+        characterName.textContent = character.name;
+        
+
+
+        selector.appendChild(characterName);
+    })
+
+})
+})

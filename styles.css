@@ -7,7 +7,8 @@ body{
     background-image: url('https://cdn.pixabay.com/photo/2023/12/29/12/12/ai-generated-8476091_1280.jpg');
     background-repeat: no-repeat;
     background-color: black;
-    background-size: auto;
+    background-size: cover;
+   
     animation: pulse 60s infinite;
 }
 @keyframes pulse {
@@ -37,3 +38,41 @@ body{
         background-size: cover;
     }
   }
+
+  #dropDown {
+    width: 350px;
+    position: relative;
+}
+
+select {
+    appearance: none;
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+#dropDown::before,
+#dropDown::after{
+    --size: 0.3rem;
+    content: '';
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+}
+#dropDown::before{
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid black;
+    top: 40%;
+}
+
+#dropDown::after{
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid black;
+    top: 55%;
+}
