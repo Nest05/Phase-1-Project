@@ -40,8 +40,10 @@ body{
   }
 
   #dropDown {
-    width: 350px;
+    width: 20vw;
     position: relative;
+    margin-left: 2vw;
+    margin-top: 10vh;
 }
 
 select {
@@ -49,10 +51,10 @@ select {
     width: 100%;
     font-size: 1.15rem;
     padding: 0.675em 6em 0.675em 1em;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid #caced1;
     border-radius: 0.25rem;
-    color: #000;
+    color: #F2D2BD;
     cursor: pointer;
 }
 #dropDown::before,
@@ -66,13 +68,31 @@ select {
 #dropDown::before{
     border-left: var(--size) solid transparent;
     border-right: var(--size) solid transparent;
-    border-bottom: var(--size) solid black;
+    border-bottom: var(--size) solid #F2D2BD;
     top: 40%;
 }
 
 #dropDown::after{
     border-left: var(--size) solid transparent;
     border-right: var(--size) solid transparent;
-    border-top: var(--size) solid black;
+    border-top: var(--size) solid #F2D2BD;
     top: 55%;
+}
+p{
+    color: #F2D2BD;
+    font-size: larger;
+}
+h2{
+    color: #F2D2BD;
+    padding-bottom: 2vh;
+}
+#quotes{
+    position: fixed;
+      top: 12%;
+      left: 50%;
+      transform: translate(-50%, -10%);
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-family: Arial, sans-serif;
 }
