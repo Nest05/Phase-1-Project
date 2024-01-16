@@ -47,17 +47,31 @@ const selector = document.querySelector('select');
 fetch('https://api.gameofthronesquotes.xyz/v1/characters')
 .then(res => res.json())
 .then(characters => {
-    console.log(characters)
+    console.log(characters);
 
     characters.forEach(character => {
-        console.log(character.name);
+        //  console.log(character.house.name);
+
         const characterName = document.createElement('option');
         characterName.textContent = character.name;
-        
-
+        characterName.value = character.name;
 
         selector.appendChild(characterName);
-    })
-
+    });
+        selector.addEventListener('change', () => {
+            const selectedCharacter = characters.find(character => character.name === selector.value);
+            if(selectedCharacter){
+            const houseName = document.createElement('p');
+            if (selectedCharacter.house && selectedCharacter.house.name){
+                houseName.textContent = selectedCharacter.house.name;
+            }else {
+                houseName.textContent = 'House Unknown';
+            }
+            quotes.innerHTML = '';
+            quotes.appendChild(houseName);
+        }
+        });
 })
+.catch(error => console.log(error))
+
 })
