@@ -50,7 +50,7 @@ fetch('https://api.gameofthronesquotes.xyz/v1/characters')
     console.log(characters);
 
     characters.forEach(character => {
-        //  console.log(character.house.name);
+         console.log(character.quotes[0]);
 
         const characterName = document.createElement('option');
         characterName.textContent = character.name;
@@ -61,14 +61,24 @@ fetch('https://api.gameofthronesquotes.xyz/v1/characters')
         selector.addEventListener('change', () => {
             const selectedCharacter = characters.find(character => character.name === selector.value);
             if(selectedCharacter){
-            const houseName = document.createElement('p');
-            if (selectedCharacter.house && selectedCharacter.house.name){
-                houseName.textContent = selectedCharacter.house.name;
-            }else {
-                houseName.textContent = 'House Unknown';
-            }
+                const quoteContainer = document.createElement('div');
+
+                const houseName = document.createElement('h2');
+                    if (selectedCharacter.house && selectedCharacter.house.name){
+                        houseName.textContent = selectedCharacter.house.name;
+                    }else {
+                        houseName.textContent = 'House Unknown';
+                    }
+                    quoteContainer.appendChild(houseName);
+
+                    selectedCharacter.quotes.forEach(quote => {
+                        const characterQuote = document.createElement('p');
+                        characterQuote.textContent = '-> ' + quote;
+                        quoteContainer.appendChild(characterQuote);
+                })
             quotes.innerHTML = '';
-            quotes.appendChild(houseName);
+            quotes.appendChild(quoteContainer);
+            
         }
         });
 })
