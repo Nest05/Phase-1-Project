@@ -17,22 +17,22 @@ authorQuote.textContent = 'Author Quotes';
 const quotes = document.getElementById('quotes');
 const selector = document.querySelector('select');
 
-// random.addEventListener('click', (e) => {
-//    e.stopPropagation();
-//    fetch('https://api.gameofthronesquotes.xyz/v1/random/5')
-//    .then(res => res.json())
-//    .then(quotes => {
-//     console.log(quotes);
+random.addEventListener('click', (e) => {
+   e.stopPropagation();
+   fetch('https://api.gameofthronesquotes.xyz/v1/random/2')
+   .then(res => res.json())
+   .then(quotes => {
+    console.log(quotes);
 
-//     quotes.forEach(quote => {
+    quotes.forEach(quote => {
     
-//     console.log(quote.sentence);
-//     console.log(quote.character.name);
-//     console.log(quote.character.house.name);
-// })
-// })
-// .catch(error => console.log(error))
-// })
+    console.log(quote.sentence);
+    console.log(quote.character.name);
+    console.log(quote.character.house.name);
+})
+})
+.catch(error => console.log(error))
+})
 // quotes.appendChild(random);  
 
 // authorQuote.addEventListener('click', (e) => {
@@ -47,10 +47,10 @@ const selector = document.querySelector('select');
 fetch('https://api.gameofthronesquotes.xyz/v1/characters')
 .then(res => res.json())
 .then(characters => {
-    console.log(characters);
+    // console.log(characters);
 
     characters.forEach(character => {
-         console.log(character.quotes[0]);
+        //  console.log(character.quotes[0]);
 
         const characterName = document.createElement('option');
         characterName.textContent = character.name;
@@ -59,8 +59,11 @@ fetch('https://api.gameofthronesquotes.xyz/v1/characters')
         selector.appendChild(characterName);
     });
         selector.addEventListener('change', () => {
+
             const selectedCharacter = characters.find(character => character.name === selector.value);
+
             if(selectedCharacter){
+
                 const quoteContainer = document.createElement('div');
 
                 const houseName = document.createElement('h2');
