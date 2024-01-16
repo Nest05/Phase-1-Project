@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Macondo&family=Poppins:wght@200;400;500&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -57,6 +58,7 @@ select {
     color: #F2D2BD;
     cursor: pointer;
 }
+
 #dropDown::before,
 #dropDown::after{
     --size: 0.3rem;
@@ -82,9 +84,15 @@ p{
     color: #F2D2BD;
     font-size: larger;
 }
+h1{
+    color: #F2D2BD;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+}
 h2{
     color: #F2D2BD;
     padding-bottom: 2vh;
+    font-family: 'Cinzel', serif;
 }
 #quotes{
     position: fixed;
@@ -93,6 +101,6 @@ h2{
       transform: translate(-50%, -10%);
       padding: 20px;
       background-color: rgba(0, 0, 0, 0.5);
-      color: white;
+      color: #F2D2BD
       font-family: Arial, sans-serif;
 }
