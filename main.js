@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     addComments();
 
-    function displayComments(name = 'Anonymous', comment){
+    function displayComments(){
         const commentSection = document.querySelector('#comment_section');
         
         fetch('http://localhost:3000/section')
@@ -134,10 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(details);
             details.forEach(detail => {
                 const commentDiv = document.createElement('div');
-                name = document.createElement('h3');
-                comment = document.createElement('p');
-                name.textContent = detail.name;
+                const name = document.createElement('h3');
+                const comment = document.createElement('p');
+
+                name.textContent = detail.name ? detail.name: 'Anonymous';
                 comment.textContent = detail.comment;
+                
                 const deleteComment = document.createElement('button');
                 deleteComment.classList.add('btn2');
                 deleteComment.textContent = 'Delete Comment';
