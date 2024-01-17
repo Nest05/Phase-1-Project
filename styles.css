@@ -149,3 +149,15 @@ h3{
     background-color: rgba(0, 0, 0, 0.5);
     color: #F2D2BD;
 }
+.btn2{
+    padding: 0.2vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #F2D2BD;
+}
+#comment_section{
+    position: fixed;
+    margin-left: 25vw;
+    width: 30vw;
+    height: 20vh;
+    overflow: auto;
+}
