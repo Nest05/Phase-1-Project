@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const quotes = document.getElementById('quotes');
     const selector = document.querySelector('select');
 
+
     function getRandomQuote(){
     random.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -41,14 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mainContainer.appendChild(random);
     }
     getRandomQuote();
-    // authorQuote.addEventListener('click', (e) => {
-    //     e.stopPropagation();
-    //     fetch('https://api.gameofthronesquotes.xyz/v1/author/tyrion/100')
-    //     .then(res => res.json())
-    //     .then(tyrions => console.log(tyrions))
-    // })
-    // quotes.appendChild(authorQuote);
-    // })
+    
+
     function getCharactersWithQuotes(){
     fetch('https://api.gameofthronesquotes.xyz/v1/characters')
     .then(res => res.json())
@@ -95,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     getCharactersWithQuotes();
 
+
     function addComments(){
         const commentForm = document.querySelector('#comments');
         commentForm.addEventListener('submit', (e) => {
@@ -125,13 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     addComments();
 
+
     function displayComments(){
         const commentSection = document.querySelector('#comment_section');
         
         fetch('http://localhost:3000/section')
         .then(res => res.json())
         .then(details => {
-            console.log(details);
+            
             details.forEach(detail => {
                 const commentDiv = document.createElement('div');
                 const name = document.createElement('h3');
@@ -166,4 +163,43 @@ document.addEventListener('DOMContentLoaded', () => {
         
     }
     displayComments();
+
+    function houseDetails(){
+        const houseButton = document.createElement('button');
+        houseButton.classList.add('btn');
+        houseButton.textContent = 'Houses & Members';
+
+        houseButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            async function getHouses(){
+            try {
+            const res = await fetch('https://api.gameofthronesquotes.xyz/v1/houses');
+            const houses = await res.json();
+            const houseDiv = document.createElement('div');
+
+                houses.forEach(house => {
+                    console.log(house.name);
+                    
+                    const hName = document.createElement('h2');
+                    hName.classList.add('h_name');
+                    hName.textContent = house.name;
+                    houseDiv.appendChild(hName);
+
+                    house.members.forEach(member => {
+                        const memberName = document.createElement('p');
+                        memberName.textContent = member.name;
+                        houseDiv.appendChild(memberName);
+                    });
+                
+                }) 
+                quotes.innerHTML = '';
+                quotes.appendChild(houseDiv);
+            } catch(error) { console.log(error)}
+        }
+        getHouses();
+        })
+        mainContainer.appendChild(houseButton);
+    }
+    houseDetails();
 })
