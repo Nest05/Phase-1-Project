@@ -10,7 +10,9 @@ APIs
 
 */
 document.addEventListener('DOMContentLoaded', () => {
+const mainContainer = document.getElementById('container');
 const random  = document.createElement('button');
+random.classList.add('random')
 random.textContent = 'Random Quote';
 const authorQuote = document.createElement('button');
 authorQuote.textContent = 'Author Quotes';
@@ -19,21 +21,23 @@ const selector = document.querySelector('select');
 
 random.addEventListener('click', (e) => {
    e.stopPropagation();
-   fetch('https://api.gameofthronesquotes.xyz/v1/random/2')
+   fetch('https://api.gameofthronesquotes.xyz/v1/random')
    .then(res => res.json())
-   .then(quotes => {
-    console.log(quotes);
+   .then(quote => {
+    const randomDiv = document.createElement('div');
+    const randomQuote = document.createElement('p');
+    randomQuote.textContent = quote.sentence;
+    const authorOfQuote = document.createElement('h4');
+    authorOfQuote.textContent = 'Author: ' + quote.character.name;
+    randomDiv.appendChild(randomQuote);
+    randomDiv.appendChild(authorOfQuote);
 
-    quotes.forEach(quote => {
-    
-    console.log(quote.sentence);
-    console.log(quote.character.name);
-    console.log(quote.character.house.name);
-})
+    quotes.innerHTML = '';
+    quotes.appendChild(randomDiv); 
 })
 .catch(error => console.log(error))
 })
-// quotes.appendChild(random);  
+mainContainer.appendChild(random);
 
 // authorQuote.addEventListener('click', (e) => {
 //     e.stopPropagation();
