@@ -106,12 +106,20 @@ h3{
     font-weight: 900;
     font-family: 'Cinzel', serif;
 }
+.h_name{
+    color: rgb(242, 210, 189, 0.8);
+    padding-top: 1.5vh;
+    padding-bottom: 0.5vh;
+    font-weight: 900;
+    font-family: 'Cinzel', serif;
+}
 #quotes{
     position: fixed;
     top: 12%;
     left: 50%;
     transform: translate(-50%, -10%);
     margin-top: 10vh;
+    min-width: 52vw;
     height: 30vh;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0);
