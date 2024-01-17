@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(details => {
             console.log(details);
             details.forEach(detail => {
-                const commentDiv = 
+                const commentDiv = document.createElement('div');
                 name = document.createElement('h3');
                 comment = document.createElement('p');
                 name.textContent = detail.name;
@@ -143,12 +143,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 deleteComment.textContent = 'Delete Comment';
                 deleteComment.addEventListener('click', (e) => {
                     e.stopPropagation();
-
+                    commentDiv.remove();
+                    const commentId = detail.id;
+                    fetch(`http://localhost:3000/section/${commentId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => res.json()).then(data => console.log(data)).catch(error => console.log(error))
 
                 })
-                commentSection.appendChild(name);
-                commentSection.appendChild(comment);
-                commentSection.appendChild(deleteComment);
+                commentDiv.appendChild(name);
+                commentDiv.appendChild(comment);
+                commentDiv.appendChild(deleteComment);
+                commentSection.appendChild(commentDiv);
         })
         })
         .catch(error => console.log(error))
