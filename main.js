@@ -94,4 +94,66 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.log(error))
     }
     getCharactersWithQuotes();
+
+    function addComments(){
+        const commentForm = document.querySelector('#comments');
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const authorName = document.getElementById('author_Name');
+            const authorComment = document.getElementById('author_Comment');
+
+            const commentData = {
+                name: authorName.value,
+                comment: authorComment.value
+            }
+        fetch('http://localhost:3000/section', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(commentData)
+        })
+        .then(res => res.json())
+        .then( data => {
+
+            authorName.value = '';
+            authorComment.value = '';
+        })
+
+    })
+    }
+    addComments();
+
+    function displayComments(name = 'Anonymous', comment){
+        const commentSection = document.querySelector('#comment_section');
+        
+        fetch('http://localhost:3000/section')
+        .then(res => res.json())
+        .then(details => {
+            console.log(details);
+            details.forEach(detail => {
+                const commentDiv = 
+                name = document.createElement('h3');
+                comment = document.createElement('p');
+                name.textContent = detail.name;
+                comment.textContent = detail.comment;
+                const deleteComment = document.createElement('button');
+                deleteComment.classList.add('btn2');
+                deleteComment.textContent = 'Delete Comment';
+                deleteComment.addEventListener('click', (e) => {
+                    e.stopPropagation();
+
+
+                })
+                commentSection.appendChild(name);
+                commentSection.appendChild(comment);
+                commentSection.appendChild(deleteComment);
+        })
+        })
+        .catch(error => console.log(error))
+
+        
+    }
+    displayComments();
 })
