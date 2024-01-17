@@ -100,6 +100,12 @@ h2{
     font-weight: 900;
     font-family: 'Cinzel', serif;
 }
+h3{
+    color: rgb(242, 210, 189, 0.8);
+    padding-bottom: 0.2vh;
+    font-weight: 900;
+    font-family: 'Cinzel', serif;
+}
 #quotes{
     position: fixed;
     top: 12%;
@@ -118,6 +124,28 @@ h2{
     padding: 0.5vw;
     font-size: larger;
     margin: 2vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #F2D2BD;
+}
+#comments{
+    margin-left: 25vw;
+    margin-top: 5vw;
+    width: 30vw;
+}
+#author_Comment{
+    height: 10vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #F2D2BD;
+    border-radius: 10px;
+}
+#author_Name{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #F2D2BD;
+}
+.btn{
+    padding: 0.5vw;
+    font-size: larger;
     background-color: rgba(0, 0, 0, 0.5);
     color: #F2D2BD;
 }
